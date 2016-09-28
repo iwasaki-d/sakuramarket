@@ -1,0 +1,18 @@
+.container-fluid
+  %h1.m-t-1 Sakura Market
+  .row
+    .col-xs-1
+    .col-xs-10
+      .card-deck-wrapper
+        .card-deck
+          - @commoditites.each do |commodity|
+            .col-xs-4
+              .card.card-commodity
+                .card-header
+                  = link_to commodity.name, commodity
+                = image_tag 'ball.png', alt: '商品画像イメージ', size: '200x200'
+                .card-block.card-user
+                  .card-text
+                .card-footer
+                  = "¥ #{commodity.price}"
+    .col-xs-1

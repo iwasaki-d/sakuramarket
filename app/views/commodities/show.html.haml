@@ -1,0 +1,18 @@
+.container-fluid
+  .row.m-t-1.row
+    %p
+      .h1 #{@commodity.name}
+    = image_tag 'ball.png', alt: '商品画像イメージ', size: '400x400'
+    %p
+      %b Price:
+      = @commodity.price
+    %p
+      %b Desctipion:
+      = @commodity.desctipion
+    - cart_commodity = CartCommodity.new(commodity: @commodity)
+    = simple_form_for(cart_commodity, url: cart_commodities_path, class: 'form-inline') do |f|
+      .form-inputs
+        = f.hidden_field :commodity_id
+        = f.input :quantities,label: '購入数量'
+      .form-actions
+        = f.button :submit, data: {disable_with: 'カート処理中...'}
