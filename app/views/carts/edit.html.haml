@@ -1,0 +1,21 @@
+.container-fluid
+  .row.m-t-1.row
+    .col-xs-1
+    .col-xs-8
+      %p
+        .h1 カート詳細
+      %table.table.table-striped
+        %thead
+          %tr
+            %th 商品名称
+            %th 購入商品
+            %th 削除
+        %tbody
+          - @cart.cart_commodities.each do |cart_commodity|
+            %tr
+              %td
+                = cart_commodity.commodity.name
+              %td
+                = cart_commodity.quantities
+              %td
+                = '削除'

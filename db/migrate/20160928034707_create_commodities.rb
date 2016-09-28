@@ -4,7 +4,7 @@ class CreateCommodities < ActiveRecord::Migration
       t.string :name,    null:false
       t.integer :price,  null:false
       t.string :desctipion
-      t.boolean :view_enabled, null:false
+      t.boolean :view_enabled, null:false, default: false
       t.decimal :position, null:false
 
       t.timestamps null: false

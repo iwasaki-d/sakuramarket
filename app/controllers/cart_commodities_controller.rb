@@ -14,8 +14,7 @@ class CartCommoditiesController < ApplicationController
   private
 
   def set_cart
-    @cart = current_user.carts.active_cart
-    @cart ||= current_user.carts.build
+    @cart = current_user.active_cart
   end
 
   def set_commodity

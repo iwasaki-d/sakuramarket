@@ -3,8 +3,11 @@
     = link_to 'さくらマーケット', root_path, class: 'navbar-brand'
   %ul.nav.navbar-nav.pull-xs-right
     - if user_signed_in?
+      - active_cart = current_user.active_cart
       %li.nav-item
-        = link_to 'カート', '', class: 'nav-link', id: 'login_link_header'
+        = link_to (image_tag 'shopping_cart.png', alt: 'カート詳細画面へ', size: '40x40') , edit_cart_path(active_cart), class: 'nav-link'
+      %li.nav-item
+        = link_to 'カート', edit_cart_path(active_cart) , class: 'nav-link'
       -#%li.nav-item
       -#  = link_to header_user_image(current_user), edit_user_registration_path, class: 'nav-link', id: 'edit_user_header'
       %li.nav-item
