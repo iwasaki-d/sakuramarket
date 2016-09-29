@@ -19,3 +19,12 @@
                 = cart_commodity.quantities
               %td
                 = '削除'
+      = simple_form_for(:order, url: '', class: 'form-inline') do |f|
+        .form-inputs
+          = f.input :delivery_day,label: '配送日'
+          = f.input :delivery_time,label: '配送時間'
+          = f.input :delivery_name,label: '配送先指名'
+          = f.input :delivery_address,label: '配送先住所'
+          = f.input :delivery_email,label: '配送先連絡メールアドレス'
+        .form-actions
+          = f.button :submit, data: {disable_with: 'カート処理中...'}
